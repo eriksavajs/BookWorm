@@ -1,19 +1,29 @@
 import React from 'react'
 import {View, Text} from 'react-native'
+import PropTypes from 'prop-types'
 
+const BookCount = (props) => (
+    
+        <View style={{
+            flex: 1,
+            alignItems: 'center', 
+            justifyContent: 'center'}}>
+            <Text style={{fontSize: 20}}>{props.title}</Text>
+            <Text>{props.count}</Text>
+            
+         </View>
+    
+    )
 
+BookCount.propTypes = {
 
-export default class BookCount extends React.Component{
-    render(){
-        return(
-            <View style={{
-                flex: 1,
-                alignItems: 'center', 
-                justifyContent: 'center'}}>
-                <Text style={{fontSize: 20}}>{this.props.title}</Text>
-                <Text>{this.props.count}</Text>
-                
-             </View>
-        )
-    }
+    count: PropTypes.number.isRequired,
+    title: PropTypes.string
+    
 }
+
+BookCount.defaultProps ={
+    title: 'Title'
+}
+
+export default BookCount
